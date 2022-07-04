@@ -2,6 +2,11 @@
 
 Example of different start tasks to get cloud tools intalled.
 
+- [AWS](#aws)
+- [Azure](#azure)
+- [Hashicorp](#hashicorp)
+- [Tunneling](#tunneling)
+
 ## Considerations
 
 These start tasks are useful if you are not using prebuilds and just to quickly copy and paste the start tasks into a new repo. If you are using prebuilds these need to be implemented as Dockerfile.
