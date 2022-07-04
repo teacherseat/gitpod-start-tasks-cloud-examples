@@ -2,8 +2,6 @@
 
 Example of different start tasks to get cloud tools intalled.
 
-
-
 ## AWS
 
 ### Set AWS Enviroment Variables
@@ -27,6 +25,9 @@ tasks:
       unzip awscliv2.zip
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT
+vscode:
+  extensions:
+    - amazonwebservices.aws-toolkit-vscode
 ```
 
 ### AWS Serverless Application Model (SAM)
@@ -40,6 +41,9 @@ tasks:
       wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
       unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
       cd $THEIA_WORKSPACE_ROOT
+vscode:
+  extensions:
+    - amazonwebservices.aws-toolkit-vscode
 ```
 
 ### AWS Copilot
@@ -49,6 +53,9 @@ tasks:
   - name: copilot
     init: |
       brew install aws/tap/copilot-cli
+vscode:
+  extensions:
+    - amazonwebservices.aws-toolkit-vscode
 ```
 
 ### AWS EKSCTL
@@ -61,6 +68,9 @@ tasks:
       brew install helm
       brew tap weaveworks/tap
       brew install weaveworks/tap/eksctl
+vscode:
+  extensions:
+    - amazonwebservices.aws-toolkit-vscode
 ```
 
 ## Kubernetes
@@ -72,6 +82,9 @@ tasks:
   - name: k8s
     init: |
       brew install kubectl
+vscode:
+  extensions:
+    - ms-kubernetes-tools.vscode-kubernetes-tools
 ```
 
 ### ArgoCD
@@ -104,12 +117,46 @@ tasks:
 
 ```yml
 tasks:
-  before: |
-    sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
-    curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-    sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-    sudo apt-get update && sudo apt-get install terraform
+  - name: terraform
+    init: |
+      sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+      curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+      sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+      sudo apt-get update && sudo apt-get install terraform
 vscode:
   extensions:
     - hashicorp.terraform
+```
+
+## Azure
+
+### Azure CLI
+
+```yml
+tasks:
+  - name: az-cli
+    init: |
+      curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
+To login without browser access:
+
+```sh
+az login --use-device-code
+```
+
+### Azure Functions
+
+```yml
+tasks:
+  - name: az-func
+    init: |
+      curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+      sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+      sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+      sudo apt-get update
+      sudo apt-get install azure-functions-core-tools-4
+vscode:
+  extensions:
+    ms-azuretools.vscode-azurefunctions
 ```
