@@ -108,7 +108,7 @@ tasks:
       curl -L https://github.com/jenkins-x/jx/releases/download/v3.2.339/jx-linux-amd64.tar.gz | tar xzv
       chmod +x jx 
       sudo mv jx /usr/local/bin
-      cd /workspace/fargate-pilot
+      cd $THEIA_WORKSPACE_ROOT
 ```
 
 ## Hashicorp
@@ -159,4 +159,25 @@ tasks:
 vscode:
   extensions:
     ms-azuretools.vscode-azurefunctions
+```
+
+## Serverless Tools
+
+### Serverless Stack CLI
+
+## Tunneling
+
+There are edgecases where you need to tunnel your connection through your desktop computer
+
+https://docs.serverless-stack.com/console#working-with-gitpod
+
+eg. If you're using the SST you need to tunnel websockets.
+
+If you had a linux enviroment eg. Windows Subsystem Linux you intall
+and run this linux tool to tunnel
+
+```sh
+curl -OL https://gitpod.io/static/bin/gitpod-local-companion-darwin-arm64
+chmod +x ./gitpod-local-companion-darwin-arm64
+./gitpod-local-companion-darwin-arm64
 ```
