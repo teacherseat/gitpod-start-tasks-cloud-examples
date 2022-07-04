@@ -122,7 +122,7 @@ tasks:
 
 ## Hashicorp
 
-## Terraform CLI
+### Terraform CLI
 
 ```yml
 tasks:
