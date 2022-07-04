@@ -99,6 +99,8 @@ tasks:
 
 ## Hashicorp
 
+## Terraform CLI
+
 ```yml
 tasks:
   before: |
