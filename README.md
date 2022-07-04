@@ -2,7 +2,11 @@
 
 Example of different start tasks to get cloud tools intalled.
 
-## Set AWS Enviroment Variables
+
+
+## AWS
+
+### Set AWS Enviroment Variables
 
 If you want to use the AWS CLI, AWS SAM, AWS Copilot you'll need AWS credentials configured.
 
@@ -11,9 +15,6 @@ gp env AWS_DEFAULT_REGION=XXXX
 gp env AWS_SECRET_ACCESS_KEY=XXXX
 gp env AWS_ACCESS_KEY_ID=us-east-1
 ```
-
-
-## AWS
 
 ### AWS Command Line Interface (CLI)
 
