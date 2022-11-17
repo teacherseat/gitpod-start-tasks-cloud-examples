@@ -18,15 +18,17 @@ These start tasks are useful if you are not using prebuilds and just to quickly 
 If you want to use the AWS CLI, AWS SAM, AWS Copilot you'll need AWS credentials configured.
 
 ```sh
-gp env AWS_DEFAULT_REGION=XXXX
+gp env AWS_ACCESS_KEY_ID=XXXX
 gp env AWS_SECRET_ACCESS_KEY=XXXX
-gp env AWS_ACCESS_KEY_ID=us-east-1
+gp env AWS_DEFAULT_REGION=us-east-1
 ```
 
 ### AWS Command Line Interface (CLI)
 
 ```yml
 tasks:
+  env:
+    AWS_CLI_AUTO_PROMPT: on-partial
   - name: aws-cli
     init: |
       cd /workspace
